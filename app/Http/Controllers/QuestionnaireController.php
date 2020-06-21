@@ -24,6 +24,7 @@ class QuestionnaireController extends Controller
     	return redirect('/questionnaires/'.$questionnaire->id);
     }
     public function show(\App\Questionnaire $questionnaire){
+        $questionnaire->load('questions.answers');
     	return view('questionnaire.show',compact('questionnaire'));
     }
 }
